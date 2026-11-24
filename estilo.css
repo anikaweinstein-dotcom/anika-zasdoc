@@ -1,0 +1,166 @@
+:root {
+  --marca: #333;
+  --acento: #999;
+  --tinta: #14161a;
+  --fondo: #f6f5f2;
+  --tarjeta: #ffffff;
+  --suave: #6b6f76;
+  --linea: #e4e2dc;
+  --fuente: system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  color: var(--tinta);
+  background: var(--fondo);
+  line-height: 1.5;
+}
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+
+/* Encabezado */
+.hero {
+  background: var(--marca);
+  color: #fff;
+  padding: 56px 0 44px;
+  margin-bottom: 36px;
+}
+.kicker {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+.hero h1 {
+  margin: 0;
+  font-size: clamp(32px, 6vw, 52px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+.sub { margin: 14px 0 0; font-size: 18px; max-width: 46ch; opacity: .92; }
+.meta { margin: 22px 0 0; font-size: 13px; opacity: .75; }
+
+/* Secciones */
+section { margin-bottom: 44px; }
+h2 {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--suave);
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--marca);
+  display: inline-block;
+}
+
+/* Logros (números) */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+}
+.stat {
+  background: var(--tarjeta);
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+}
+.stat .num {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--marca);
+  font-variant-numeric: tabular-nums;
+}
+.stat .lbl { margin-top: 6px; font-size: 14px; color: var(--suave); }
+
+/* Objetivos */
+.goals { display: grid; gap: 12px; }
+.goal {
+  background: var(--tarjeta);
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+.goal-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.goal-name { font-weight: 700; font-size: 16px; }
+.badge {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: var(--fondo);
+  color: var(--suave);
+  white-space: nowrap;
+}
+.badge.hecho { background: var(--marca); color: #fff; }
+.badge.curso { background: color-mix(in srgb, var(--marca) 12%, #fff); color: var(--marca); }
+.goal-desc { margin: 6px 0 0; font-size: 14px; color: var(--suave); }
+.bar { margin-top: 12px; height: 8px; background: var(--fondo); border-radius: 99px; overflow: hidden; }
+.bar > span { display: block; height: 100%; background: var(--marca); border-radius: 99px; }
+
+/* Avances (línea de tiempo) */
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li {
+  position: relative;
+  padding: 0 0 26px 28px;
+  border-left: 2px solid var(--linea);
+  margin-left: 6px;
+}
+.timeline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -8px; top: 3px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--marca);
+  border: 3px solid var(--fondo);
+}
+.t-date { font-size: 13px; font-weight: 700; color: var(--suave); }
+.t-title { font-size: 17px; font-weight: 700; margin: 2px 0 4px; }
+.t-text { margin: 0; font-size: 15px; color: #3a3d42; }
+.t-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--marca);
+  text-decoration: none;
+  border-bottom: 2px solid color-mix(in srgb, var(--marca) 35%, transparent);
+}
+.t-link:hover { border-bottom-color: var(--marca); }
+
+/* Lo que sigue */
+.next { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.next li {
+  background: var(--tarjeta);
+  border: 1px solid var(--linea);
+  border-radius: 12px;
+  padding: 12px 16px 12px 42px;
+  position: relative;
+  font-size: 15px;
+}
+.next li::before {
+  content: "";
+  position: absolute;
+  left: 16px; top: 50%;
+  width: 12px; height: 12px;
+  margin-top: -6px;
+  border: 2px solid var(--marca);
+  border-radius: 4px;
+}
+
+.foot { padding: 20px 22px 48px; font-size: 13px; color: var(--suave); border-top: 1px solid var(--linea); }
+.foot a { color: inherit; }
+
+@media (max-width: 520px) {
+  .hero { padding: 40px 0 32px; }
+  .stat .num { font-size: 28px; }
+}
